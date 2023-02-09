@@ -1,3 +1,3 @@
 session_name: "archimedes"
 archimedes_file: "archimedes.jpg"
-ahahah_regex: "^[Аа](ха)+х?[ !)]*$"
+ahahah_regex: "^[Аа](ха)+х?[ :!)]*$"
