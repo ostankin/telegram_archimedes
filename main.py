@@ -21,7 +21,6 @@ with client:
         msg = event.message
         peer_id = msg.peer_id
         from_id = msg.from_id
-        print()
         if type(peer_id) is PeerUser \
                 and type(from_id) is PeerUser \
                 and ahahah_pattern.match(msg.message):
