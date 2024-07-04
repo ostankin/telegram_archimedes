@@ -1,3 +1,8 @@
 session_name: "archimedes"
-archimedes_file: "archimedes.jpg"
-ahahah_regex: "^[Аа](ха)+х?[ :!)]*$"
+matches:
+  - name: ahahah
+    filename: "archimedes.jpg"
+    regex: "^[Аа](ха)+х?[ :!)]*$"
+  - name: closing_parentheses
+    filename: "fingernail.jpg"
+    regex: "^[;:]?\\)+$"
