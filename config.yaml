@@ -5,4 +5,4 @@ matches:
     regex: "^[Аа](ха)+х?[ :!)]*$"
   - name: closing_parentheses
     filename: "fingernail.jpg"
-    regex: "^\\)+$|^.*\\){2,}$"
+    regex: "^\\)+$|^.*\\){3,}$"
