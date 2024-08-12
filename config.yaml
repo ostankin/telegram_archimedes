@@ -1,8 +1,11 @@
 session_name: "archimedes"
 matches:
-  - name: ahahah
+  - name: ahahah_rus
     filename: "archimedes.jpg"
     regex: "^[Аа](ха)+х?[ :!)]*$"
+  - name: ahahah_eng
+    filename: "archimedes_eng.png"
+    regex: "^[Aa](ha)+h?[ :!)]*$"
   - name: closing_parentheses
     filename: "fingernail.jpg"
     regex: "^\\)+$|^.*\\){3,}$"
