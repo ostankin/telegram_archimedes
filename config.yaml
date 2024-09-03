@@ -9,3 +9,5 @@ matches:
   - name: closing_parentheses
     filename: "fingernail.jpg"
     regex: "^\\)+$|^.*\\){3,}$"
+excludes:
+  - ed00e1229475

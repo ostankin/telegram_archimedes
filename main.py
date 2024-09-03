@@ -2,6 +2,7 @@ from telethon import TelegramClient
 from telethon.tl.types import PeerUser
 from telethon import events
 import re
+from hashlib import sha256
 from collections import namedtuple
 from bestconfig import Config
 
@@ -30,8 +31,10 @@ with client:
         peer_id = msg.peer_id
         from_id = msg.from_id
         if type(peer_id) is PeerUser and type(from_id) is PeerUser:
+            from_hash = sha256(str(from_id.user_id).encode()).hexdigest()
+            is_excluded = config.excludes and any(from_hash.startswith(h) for h in config.excludes)
             for match in matches:
-                if match.regex.match(msg.message):
+                if not is_excluded and match.regex.match(msg.message):
                     peer_entity = await client.get_entity(peer_id.user_id)
                     await client.send_file(
                         entity=peer_entity,
