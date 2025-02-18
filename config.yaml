@@ -6,8 +6,8 @@ matches:
   - name: ahahah_eng
     filename: "archimedes_eng.png"
     regex: "^[Aa](ha)+h?[ :!)]*$"
-  - name: closing_parentheses
-    filename: "fingernail.jpg"
-    regex: "^\\)+$|^.*\\){3,}$"
+#  - name: closing_parentheses
+#    filename: "fingernail.jpg"
+#    regex: "^\\)+$|^.*\\){3,}$"
 excludes:
   - ed00e1229475
