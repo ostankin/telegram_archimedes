@@ -7,11 +7,25 @@ from collections import namedtuple
 from bestconfig import Config
 
 Match = namedtuple('Match', ['name', 'regex', 'filename'])
-config = Config("config.yaml")
+config = Config('config.yaml')
 api_id = config.API_ID
 api_hash = config.API_HASH
 session_name = config.session_name
-client = TelegramClient(session_name, api_id, api_hash)
+
+proxy = None
+if 'PROXY_TYPE' in config:
+    proxy = dict(
+        proxy_type=config.PROXY_TYPE,
+        addr=config.PROXY_ADDR,
+        port=int(config.PROXY_PORT),
+    )
+    if 'PROXY_USERNAME' in config:
+        proxy['username'] = config.PROXY_USERNAME
+        proxy['password'] = config.PROXY_PASSWORD
+    if 'PROXY_RDNS' in config:
+        proxy['rdns'] = bool(config.PROXY_RDNS)
+
+client = TelegramClient(session_name, api_id, api_hash, proxy=proxy)
 
 matches = []
 for match_config in config.matches:

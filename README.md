@@ -37,6 +37,32 @@ API_ID=12345678
 API_HASH="1af822b2a9055ad52d76c18afbd05ae824d332b6"
 ```
 
+Если для работы Телеграм требуется прокси, добавьте в `.env` следующие строки:
+
+```shell
+PROXY_TYPE='socks5'
+PROXY_ADDR='1.2.3.4'
+PROXY_PORT=1234
+PROXY_USERNAME='jane.doe'  # необязательно
+PROXY_PASSWORD='secret'  # необязательно
+PROXY_RDNS=true  # необязательно
+```
+
+Подробности см. в
+[документации к объекту TelegramClient](https://docs.telethon.dev/en/stable/basic/signing-in.html#signing-in-behind-a-proxy).
+
+**Важно:** все перечисленные в файле `.env` переменные нужно продублировать в секции `environment`
+файла `docker-compose.yml` (уже без значений, только имена переменных):
+
+```yaml
+    environment:
+      - API_ID
+      - API_HASH
+      - PROXY_TYPE
+      - PROXY_ADDR
+      # и так далее
+```
+
 После этого можно собирать и запускать:
 ```
 docker-compose up -d

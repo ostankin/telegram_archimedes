@@ -1,2 +1,3 @@
 telethon
 bestconfig
+python-socks[asyncio]
